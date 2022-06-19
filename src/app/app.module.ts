@@ -5,14 +5,9 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    NgApexchartsModule,
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, NgApexchartsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
