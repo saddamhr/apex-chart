@@ -1,0 +1,29 @@
+{
+    "series": [
+      {
+        "name": "My-series",
+        "data": [1, 41, 35, 51, 4, 62, 69, 91, 14]
+      }
+    ],
+    "chart": {
+      "height": 350,
+      "type": "bar"
+    },
+    "title": {
+      "text": "My First Angular Chart"
+    },
+    "xaxis": {
+      "categories": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep"
+      ]
+    }
+  }
+  

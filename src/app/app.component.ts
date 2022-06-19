@@ -1,5 +1,6 @@
-import { Component, ViewChild } from '@angular/core';
-import { ChartOptions } from './chart.model';
+import { Component } from '@angular/core';
+import { BarChartOptions } from './chart.model';
+import { ApiRequestService } from './services/api-request.service';
 
 @Component({
   selector: 'app-root',
@@ -7,36 +8,32 @@ import { ChartOptions } from './chart.model';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  chartOptions: ChartOptions;
+  superUserBarChartData!: BarChartOptions;
 
-  constructor() {
-    this.chartOptions = {
-      series: [
-        {
-          name: 'My-series',
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
-        },
-      ],
-      chart: {
-        height: 350,
-        type: 'bar',
+  constructor(private _apiRequestService: ApiRequestService) {
+    this.getChartData('superuser');
+  }
+
+  getChartData(type: string) {
+    this._apiRequestService.fetchChartData(type).subscribe(
+      (data: BarChartOptions) => {
+        console.log(data);
+        this.superUserBarChartData = data;
       },
-      title: {
-        text: 'My First Angular Chart',
-      },
-      xaxis: {
-        categories: [
-          'Jan',
-          'Feb',
-          'Mar',
-          'Apr',
-          'May',
-          'Jun',
-          'Jul',
-          'Aug',
-          'Sep',
-        ],
-      },
-    };
+      (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
+  tabChanged(event: any) {
+    console.log(event);
+    if (event.index === 0) {
+      this.getChartData('superuser');
+    } else if (event.index === 1) {
+      this.getChartData('admin');
+    } else {
+      this.getChartData('user');
+    }
   }
 }

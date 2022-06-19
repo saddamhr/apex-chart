@@ -1,8 +1,17 @@
-<div style="text-align: center">
-  <apx-chart
-    [series]="chartOptions.series"
-    [chart]="chartOptions.chart"
-    [xaxis]="chartOptions.xaxis"
-    [title]="chartOptions.title"
-  ></apx-chart>
-</div>
+<mat-tab-group (selectedTabChange)="tabChanged($event)" mat-align-tabs="start">
+  <mat-tab label="Bar Chart for Superuser">
+    <ng-template matTabContent>
+      <app-bar-chart [chartOptions]="superUserBarChartData"></app-bar-chart>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Bar Chart for Admin">
+    <ng-template matTabContent>
+      <app-bar-chart [chartOptions]="superUserBarChartData"></app-bar-chart>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Bar Chart for User">
+    <ng-template matTabContent>
+      <app-bar-chart [chartOptions]="superUserBarChartData"></app-bar-chart>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
