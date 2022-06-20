@@ -1,0 +1,69 @@
+<div class="container">
+  <mat-card>
+    <form [formGroup]="addressForm">
+      <label for="email"></label>
+      <div
+        formArrayName="adresses"
+        *ngFor="
+          let item of addressForm.get('adresses')['controls'];
+          let i = index
+        "
+      >
+        <div class="email-row" [formGroupName]="i">
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              formControlName="city"
+              placeholder="City"
+            />
+          </mat-form-field>
+        </div>
+        <div class="email-row" [formGroupName]="i">
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              formControlName="state"
+              placeholder="State"
+            />
+          </mat-form-field>
+        </div>
+        <div class="email-row" [formGroupName]="i">
+          <mat-form-field>
+            <input
+              type="text"
+              matInput
+              formControlName="country"
+              placeholder="Country"
+            />
+          </mat-form-field>
+          <button
+            (click)="removeEmailItem(i)"
+            mat-stroked-button
+            matTooltip="Remove"
+            color="primary"
+            *ngIf="i > 0"
+            style="cursor: pointer"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+
+        <hr />
+      </div>
+      <button
+        (click)="add()"
+        mat-stroked-button
+        matTooltip="Add"
+        color="primary"
+        style="margin: 0 10px"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </form>
+    <button style="float: right" mat-fab color="primary" (click)="finish()">
+      <mat-icon>done</mat-icon>
+    </button>
+  </mat-card>
+</div>

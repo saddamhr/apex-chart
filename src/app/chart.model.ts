@@ -34,3 +34,8 @@ export type PieChartOptions = {
   responsive: ApexResponsive[];
   labels: any;
 };
+
+export interface FormOption {
+  name: string,
+  emails: {email:string, phone:string}[]
+}

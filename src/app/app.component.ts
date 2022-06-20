@@ -17,7 +17,6 @@ export class AppComponent {
   getChartData(type: string) {
     this._apiRequestService.fetchChartData(type).subscribe(
       (data: BarChartOptions) => {
-        console.log(data);
         this.superUserBarChartData = data;
       },
       (error: any) => {
@@ -27,7 +26,6 @@ export class AppComponent {
   }
 
   tabChanged(event: any) {
-    console.log(event);
     if (event.index === 0) {
       this.getChartData('superuser');
     } else if (event.index === 1) {

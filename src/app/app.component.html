@@ -2,6 +2,7 @@
   <mat-tab label="Bar Chart for Superuser">
     <ng-template matTabContent>
       <app-bar-chart [chartOptions]="superUserBarChartData"></app-bar-chart>
+      <!-- <app-form-array-edit></app-form-array-edit> -->
     </ng-template>
   </mat-tab>
   <mat-tab label="Bar Chart for Admin">
@@ -12,6 +13,16 @@
   <mat-tab label="Bar Chart for User">
     <ng-template matTabContent>
       <app-bar-chart [chartOptions]="superUserBarChartData"></app-bar-chart>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Form Array">
+    <ng-template matTabContent>
+      <app-form-array></app-form-array>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Form Array Edit">
+    <ng-template matTabContent>
+      <app-form-array-edit></app-form-array-edit>
     </ng-template>
   </mat-tab>
 </mat-tab-group>
